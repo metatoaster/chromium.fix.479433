@@ -6,11 +6,14 @@
       body {
         font-family: DejaVu Sans, Arial, sans-serif;
         font-size: 75%;
-        width: 328px;
+        width: 30em;
+      }
+      legend {
+        font-weight: bold;
       }
       select {
         font-family: DejaVu Sans, Arial, sans-serif;
-        width: 110px;
+        width: 9em;
         color: #444;
       }
       select:hover {
@@ -20,92 +23,103 @@
         color: #aaa;
       }
       fieldset {
-        border: 1px solid #d9d9d9;
-        border-radius: 2px;
+        border: 0;
+      }
+      dl {
+        margin: 0;
       }
       dt {
         display: inline-block;
-        width: 180px;
+        width: 17em;
       }
       dd {
         display: inline-block;
-        width: 110px;
-        margin: 5px;
+        margin: 0.4em;
+        background: #555;
+        width: 9em;
+      }
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.4em;
       }
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
     <fieldset>
+      <legend>Permissions</legend>
       <dl>
-        <dt><label for="cookies">Cookies: </label></dt>
+        <dt><img src="allowed_cookies.png"/><label for="cookies">Cookies: </label></dt>
         <dd><select id="cookies" disabled>
           <option value="allow">Allow</option>
           <option value="session_only">Session only</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="images">Images: </label></dt>
+        <dt><img src="allowed_images.png"/><label for="images">Images: </label></dt>
         <dd><select id="images" disabled>
           <option value="allow">Allow</option>
           <option value="block">Block</option>
         </select>
-        <dt><label for="javascript">Javascript: </label></dt>
+        <dt><img src="allowed_script.png"/><label for="javascript">Javascript: </label></dt>
         <dd><select id="javascript" disabled>
           <option value="allow">Allow</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="location">Location: </label></dt>
+        <dt><img src="allowed_location.png"/><label for="location">Location: </label></dt>
         <dd><select id="location" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="plugins">Plugins: </label></dt>
+        <dt><img src="allowed_plugins.png"/><label for="plugins">Plugins: </label></dt>
         <dd><select id="plugins" disabled>
           <option value="allow">Allow</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="popups">Pop-ups: </label></dt>
+        <dt><img src="allowed_popups.png"/><label for="popups">Popups: </label></dt>
         <dd><select id="popups" disabled>
           <option value="allow">Allow</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="notifications">Notifications: </label></dt>
+        <dt><img src="allowed_notifications.png"/><label for="notifications">Notifications: </label></dt>
         <dd><select id="notifications" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="fullscreen">Fullscreen: </label></dt>
+        <dt><img src="allowed_fullscreen.png"/><label for="fullscreen">Fullscreen: </label></dt>
         <dd><select id="fullscreen" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
         </select></dd>
-        <dt><label for="mouselock">Mouse cursor: </label></dt>
+        <dt><img src="allowed_mouse_cursor.png"/><label for="mouselock">Mouse cursor: </label></dt>
         <dd><select id="mouselock" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="microphone">Microphone: </label></dt>
+        <!--
+        <dt><img src="allowed_microphone.png"/><label for="microphone">Microphone: </label></dt>
         <dd><select id="microphone" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="camera">Camera: </label></dt>
+        <dt><img src="allowed_camera.png"/><label for="camera">Camera: </label></dt>
         <dd><select id="camera" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="unsandboxedPlugins">Unsandboxed plugin access: </label></dt>
+        -->
+        <dt><img src="allowed_plugins.png"/><label for="unsandboxedPlugins">Unsandboxed plugin access: </label></dt>
         <dd><select id="unsandboxedPlugins" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
           <option value="block">Block</option>
         </select></dd>
-        <dt><label for="automaticDownloads">Automatic Downloads: </label></dt>
+        <dt><img src="allowed_downloads.png"/><label for="automaticDownloads">Automatic Downloads: </label></dt>
         <dd><select id="automaticDownloads" disabled>
           <option value="allow">Allow</option>
           <option value="ask">Ask</option>
@@ -113,7 +127,5 @@
         </select></dd>
       </dl>
     </fieldset>
-
-
   </body>
 </html>
