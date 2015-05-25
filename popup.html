@@ -3,7 +3,35 @@
   <head>
     <title>Popup</title>
     <style>
-      dt { white-space: nowrap }
+      body {
+        font-family: DejaVu Sans, Arial, sans-serif;
+        font-size: 75%;
+        width: 328px;
+      }
+      select {
+        font-family: DejaVu Sans, Arial, sans-serif;
+        width: 110px;
+        color: #444;
+      }
+      select:hover {
+        color: #000;
+      }
+      select:disabled {
+        color: #aaa;
+      }
+      fieldset {
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+      }
+      dt {
+        display: inline-block;
+        width: 180px;
+      }
+      dd {
+        display: inline-block;
+        width: 110px;
+        margin: 5px;
+      }
     </style>
     <script src="popup.js"></script>
   </head>
