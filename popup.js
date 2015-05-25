@@ -8,7 +8,8 @@ var url;
 function settingChanged() {
   var type = this.id;
   var setting = this.value;
-  var pattern = /^file:/.test(url) ? url : url.replace(/\/[^\/]*?$/, '/*');
+  var pattern = /^file:/.test(url) ? url : url.replace(
+      /(\:\/\/[^\/]*)\/?.*/, '$1/*');
   console.log(type+' setting for '+pattern+': '+setting);
   // HACK: [type] is not recognised by the docserver's sample crawler, so
   // mention an explicit
