@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Popup</title>
+    <title>Content Settings</title>
     <style>
       body {
         font-family: DejaVu Sans, Arial, sans-serif;
         font-size: 75%;
         width: 30em;
+      }
+      body p {
+        margin: 1em;
       }
       legend {
         font-weight: bold;
@@ -43,89 +46,25 @@
         vertical-align: middle;
         margin-right: 0.4em;
       }
+      #clearSettings {
+        display: block;
+        margin: 0 auto;
+      }
+      #contentSettings label { /* move this up to dt */
+        padding-left: 24px;
+        display: inline-block;
+        line-height: 19px;
+        background-repeat: no-repeat;
+      }
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-    <fieldset>
-      <legend>Permissions</legend>
-      <dl>
-        <dt><img src="allowed_cookies.png"/><label for="cookies">Cookies: </label></dt>
-        <dd><select id="cookies" disabled>
-          <option value="allow">Allow</option>
-          <option value="session_only">Session only</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_images.png"/><label for="images">Images: </label></dt>
-        <dd><select id="images" disabled>
-          <option value="allow">Allow</option>
-          <option value="block">Block</option>
-        </select>
-        <dt><img src="allowed_script.png"/><label for="javascript">Javascript: </label></dt>
-        <dd><select id="javascript" disabled>
-          <option value="allow">Allow</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_location.png"/><label for="location">Location: </label></dt>
-        <dd><select id="location" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_plugins.png"/><label for="plugins">Plugins: </label></dt>
-        <dd><select id="plugins" disabled>
-          <option value="allow">Allow</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_popups.png"/><label for="popups">Popups: </label></dt>
-        <dd><select id="popups" disabled>
-          <option value="allow">Allow</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_notifications.png"/><label for="notifications">Notifications: </label></dt>
-        <dd><select id="notifications" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_fullscreen.png"/><label for="fullscreen">Fullscreen: </label></dt>
-        <dd><select id="fullscreen" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-        </select></dd>
-        <dt><img src="allowed_mouse_cursor.png"/><label for="mouselock">Mouse cursor: </label></dt>
-        <dd><select id="mouselock" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <!--
-        <dt><img src="allowed_microphone.png"/><label for="microphone">Microphone: </label></dt>
-        <dd><select id="microphone" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_camera.png"/><label for="camera">Camera: </label></dt>
-        <dd><select id="camera" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        -->
-        <dt><img src="allowed_plugins.png"/><label for="unsandboxedPlugins">Unsandboxed plugin access: </label></dt>
-        <dd><select id="unsandboxedPlugins" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-        <dt><img src="allowed_downloads.png"/><label for="automaticDownloads">Automatic Downloads: </label></dt>
-        <dd><select id="automaticDownloads" disabled>
-          <option value="allow">Allow</option>
-          <option value="ask">Ask</option>
-          <option value="block">Block</option>
-        </select></dd>
-      </dl>
+    <p>
+      <strong id="site"></strong>
+    </p>
+    <fieldset id="contentSettings">
+      <legend>Content Settings</legend>
     </fieldset>
   </body>
 </html>
