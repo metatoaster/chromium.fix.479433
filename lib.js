@@ -125,25 +125,4 @@ function createSettingFields() {
     return dl;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        var current = tabs[0];
-        incognito = current.incognito;
-        url = current.url;
-        var site = document.getElementById('site');
-        if (url.startsWith('chrome://')) {
-            site.textContent = label_text['cannotToggleHere'];
-            return
-        }
-        var fieldset = document.getElementById('contentSettings');
-        var legend = document.createElement('legend');
-        legend.textContent = label_text['contentSettings'];
-        fieldset.appendChild(legend);
-        css = document.querySelector('style').sheet;
-        var site = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
-        fieldset.appendChild(createSettingFields());
-        document.getElementById('site').textContent = site;
-    });
-});
-
 // @license-end

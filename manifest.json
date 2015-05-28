@@ -5,7 +5,7 @@
     "permissions": [ "storage", "contentSettings", "activeTab" ],
     "browser_action": {
         "default_icon": "contentSettings.png",
-        "default_popup": "popup.html"
+        "default_popup": "main.html"
     },
     "minimum_chrome_version": "42",
     "options_ui": {
