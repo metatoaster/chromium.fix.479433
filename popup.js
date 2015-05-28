@@ -50,7 +50,7 @@ var label_text = {
     'popups': 'Pop-ups',
     'notifications': 'Notifications',
     'fullscreen': 'Full screen',
-    'mouselock': 'Disable mouse cursor',
+    'mouselock': 'Mouse lock',
     'microphone': 'Microphone',
     'camera': 'Camera',
     'unsandboxedPlugins': 'Unsandboxed plug-in access',
@@ -89,7 +89,7 @@ function createSettingLabel(type) {
     dt.appendChild(label);
 
     dt.setAttribute('class', type);
-    label.textContent = label_text[type] || type;
+    label.textContent = (label_text[type] || type) + ':';
     label.setAttribute('for', type);
     label.addEventListener('click', function() {
         chrome.tabs.create({'url':
