@@ -54,7 +54,10 @@ var label_text = {
     'microphone': 'Microphone',
     'camera': 'Camera',
     'unsandboxedPlugins': 'Unsandboxed plug-in access',
-    'automaticDownloads': 'Automatic downloads'
+    'automaticDownloads': 'Automatic downloads',
+
+    'contentSettings': 'Content Settings',
+    'cannotToggleHere': 'Content Settings cannot be modified for this page.',
 }
 
 function settingChanged() {
@@ -151,13 +154,19 @@ document.addEventListener('DOMContentLoaded', function () {
         var current = tabs[0];
         incognito = current.incognito;
         url = current.url;
-        css = document.querySelector('style').sheet;
-        var fieldset = document.getElementById('contentSettings');
-
-        fieldset.appendChild(createSettingFields());
-
-        var site = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
-        if (!url.startsWith('chrome://')) {
-            document.getElementById('site').textContent = site;
+        var site = document.getElementById('site');
+        if (url.startsWith('chrome://')) {
+            site.textContent = label_text['cannotToggleHere'];
+            return
         }
+        var fieldset = document.getElementById('contentSettings');
+        var legend = document.createElement('legend');
+        legend.textContent = label_text['contentSettings'];
+        fieldset.appendChild(legend);
+        css = document.querySelector('style').sheet;
+        var site = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
+        fieldset.appendChild(createSettingFields());
+        document.getElementById('site').textContent = site;
+    });
+
 });
