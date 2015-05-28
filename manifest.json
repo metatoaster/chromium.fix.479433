@@ -1,11 +1,16 @@
 {
-  "name" : "Content settings",
-  "version" : "0.2",
-  "description" : "Shows the content settings for the current site.",
-  "permissions": [ "contentSettings", "tabs" ],
-  "browser_action": {
-     "default_icon": "contentSettings.png",
-     "default_popup": "popup.html"
-  },
-  "manifest_version": 2
+    "name" : "Content Settings Reborn",
+    "version" : "0.1",
+    "description" : "Restores the content settings permission control functionality as it existed in Chrome 23 till Chrome 41.",
+    "permissions": [ "storage", "contentSettings", "activeTab" ],
+    "browser_action": {
+        "default_icon": "contentSettings.png",
+        "default_popup": "popup.html"
+    },
+    "minimum_chrome_version": "42",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "manifest_version": 2
 }
