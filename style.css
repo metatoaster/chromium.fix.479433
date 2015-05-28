@@ -1,0 +1,56 @@
+body {
+    font-family: DejaVu Sans, Arial, sans-serif;
+    font-size: 75%;
+    width: 30em;
+}
+body p {
+    margin: 1em;
+}
+legend {
+    font-weight: bold;
+}
+select {
+    font-family: DejaVu Sans, Arial, sans-serif;
+    width: 9em;
+    color: #444;
+}
+select:hover {
+    color: #000;
+}
+select:disabled {
+    color: #aaa;
+}
+fieldset {
+    border: 0;
+}
+dl {
+    margin: 0;
+}
+dt {
+    display: inline-block;
+    width: 15em;
+}
+dd {
+    display: inline-block;
+    margin: 0.4em;
+    width: 9em;
+}
+img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.4em;
+}
+#clearSettings {
+    display: block;
+    margin: 0 auto;
+}
+#contentSettings dt {
+    padding-left: 24px;
+    display: inline-block;
+    line-height: 19px;
+    background-repeat: no-repeat;
+}
+#contentSettings label:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
