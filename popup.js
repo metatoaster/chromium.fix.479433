@@ -68,16 +68,16 @@ function settingChanged() {
         'setting': setting,
         'scope': (incognito ? 'incognito_session_only' : 'regular')
     });
-    document.querySelector('label.' + type).setAttribute('class',
+    document.querySelector('dt.' + type).setAttribute('class',
         setting == 'block' ? type + ' block' : type);
 }
 
 function addCssRules(type) {
     var img = icon_map[type] || type;
-    css.insertRule('label.' + type +
+    css.insertRule('dt.' + type +
         '{ background: url("allowed_' + img + '.png") }',
         css.cssRules.length);
-    css.insertRule('label.block.' + type +
+    css.insertRule('dt.block.' + type +
         '{ background: url("blocked_' + img + '.png") }',
         css.cssRules.length);
 }
@@ -88,7 +88,7 @@ function createSettingLabel(type) {
 
     dt.appendChild(label);
 
-    label.setAttribute('class', type);
+    dt.setAttribute('class', type);
     label.textContent = label_text[type] || type;
     label.setAttribute('for', type);
     label.addEventListener('click', function() {
@@ -138,7 +138,7 @@ function createSettingFields() {
             }
             dd.querySelector('select').disabled = false;
             dd.querySelector('select').value = details.setting;
-            dt.querySelector('label.' + type).setAttribute('class',
+            dt.setAttribute('class',
                 details.setting == 'block' ? type + ' block' : type);
         });
 
