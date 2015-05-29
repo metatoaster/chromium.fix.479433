@@ -171,4 +171,52 @@ function createSettingFields() {
     return dl;
 }
 
+function createRuleSection(rules) {
+    var result = document.createElement('dl');
+    result.setAttribute('class', 'rules');
+    for (key in rules) {
+        var domain = document.createElement('dt');
+        var behavior = document.createElement('dd');
+        domain.textContent = key;
+        behavior.textContent = option_labels[rules[key][0]];
+        result.appendChild(domain);
+        result.appendChild(behavior);
+    }
+    return result;
+}
+
+function createDetailSection(type, rules) {
+    var result = document.createElement('div');
+    var label = document.createElement('label');
+    var checkbox = document.createElement('input');
+
+    labeltext = (label_text[type] || type);
+    label.textContent = `${label_text[type]} (${Object.keys(rules).length})`;
+    label.setAttribute('for', type);
+    label.setAttribute('class', 'header');
+
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('name', 'menu');
+    checkbox.setAttribute('id', type);
+    checkbox.setAttribute('class', 'header');
+
+    result.appendChild(checkbox);
+    result.appendChild(label);
+    result.appendChild(createRuleSection(rules));
+    return result;
+}
+
+function createDetailListing() {
+    var div = document.createElement('div');
+    chrome.storage.local.get(null, function(items) {
+        types.forEach(function(type) {
+            if (chrome.contentSettings[type]) {
+                var rules = items[type] || {};
+                div.appendChild(createDetailSection(type, rules));
+            }
+        });
+    });
+    return div;
+}
+
 // @license-end

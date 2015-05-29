@@ -59,3 +59,24 @@ img {
 #contents-settings-reborn-page {
     max-height: 640px;
 }
+#contents-settings-reborn-page label.header {
+    font-size: 1.2em;
+    padding: 0.4em 0;
+    display: block;
+}
+#contents-settings-reborn-page label.header:hover {
+    background: #e4ecf7;
+}
+#contents-settings-reborn-page input.header {
+    display: none;
+}
+#contents-settings-reborn-page input.header:checked + label {
+}
+#contents-settings-reborn-page input.header ~ dl {
+    transition: max-height 0.2s ease-in-out,box-shadow 0.2s linear;
+    overflow: hidden;
+    max-height: 0;
+}
+#contents-settings-reborn-page input.header:checked ~ dl {
+    max-height: 640px;
+}
