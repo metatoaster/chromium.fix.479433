@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var clearSettings = document.querySelector('#clearSettings');
     clearSettings.addEventListener('click', function() {
+        // just clear _everything_ indescriminately
+        chrome.storage.local.clear();
         types.forEach(function(type) {
-            chrome.contentSettings[type] && chrome.contentSettings[type].clear(
-            {
-              'scope': (incognito ? 'incognito_session_only' : 'regular')
-            });
+            if (chrome.contentSettings[type]) {
+                chrome.contentSettings[type].clear(
+                    {'scope': 'regular'});
+                chrome.contentSettings[type].clear(
+                    {'scope': 'incognito_session_only'});
+            }
         });
     });
 });
