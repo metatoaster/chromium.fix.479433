@@ -1,7 +1,6 @@
 body {
     font-family: DejaVu Sans, Arial, sans-serif;
     font-size: 75%;
-    width: 30em;
 }
 body p {
     margin: 1em;
@@ -53,4 +52,10 @@ img {
 #contentSettings label:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+#contents-settings-popup {
+    width: 30em;
+}
+#contents-settings-reborn-page {
+    max-height: 640px;
 }

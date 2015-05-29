@@ -1,6 +1,22 @@
 // Copyright (c) 2015 Tommy Yu .
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
 
+var types = [
+    'cookies',
+    'images',
+    'javascript',
+    'location',
+    'plugins',
+    'popups',
+    'notifications',
+    'fullscreen',
+    'mouselock',
+    'microphone',
+    'camera',
+    'unsandboxedPlugins',
+    'automaticDownloads'
+];
+
 var option_labels = {
     'allow': 'Allow',
     'block': 'Block',
@@ -49,6 +65,36 @@ var label_text = {
 
     'contentSettings': 'Content Settings',
     'cannotToggleHere': 'Content Settings cannot be modified for this page.',
+}
+
+function saveSetting(type, pattern, setting, incognito) {
+    chrome.storage.local.get([type], function(items) {
+        chrome.contentSettings[type].set({
+            'primaryPattern': pattern,
+            'setting': setting,
+            'scope': (incognito ? 'incognito_session_only' : 'regular')
+        });
+        // setting this after because whenever users request to remove a
+        // rule, if the following fails (such as due to out of storage)
+        // the rules that failed to be saved simply won't be restored,
+        // rather than the alternative where rules are saved for rules
+        // that never have been set properly.
+        type_items = items[type] || {};
+        type_items[pattern] = [setting, incognito];
+        items[type] = type_items;
+        chrome.storage.local.set(items);
+    });
+}
+
+function settingChanged() {
+    var type = this.id;
+    var setting = this.value;
+    var pattern = /^file:/.test(url) ? url : url.replace(
+        /.*(\:\/\/[^\/]*)\/?.*/, '*$1/*');
+    console.log(type+' setting for '+pattern+': '+setting);
+    saveSetting(type, pattern, setting, incognito);
+    document.querySelector('dt.' + type).setAttribute('class',
+        setting == 'block' ? type + ' block' : type);
 }
 
 function addCssRules(type) {
