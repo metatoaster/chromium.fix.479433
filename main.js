@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         css = document.querySelector('style').sheet;
         var site = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
         fieldset.appendChild(createSettingFields());
+        fieldset.appendChild(createSettingOptionLink());
         document.getElementById('site').textContent = site;
     });
 });

@@ -65,6 +65,8 @@ var label_text = {
 
     'contentSettings': 'Content Settings',
     'cannotToggleHere': 'Content Settings cannot be modified for this page.',
+
+    'extensionConfig': 'Configure this extension',
 }
 
 function saveSetting(type, pattern, setting, incognito) {
@@ -169,6 +171,16 @@ function createSettingFields() {
 
     });
     return dl;
+}
+
+function createSettingOptionLink() {
+    var link = document.createElement('div');
+    link.textContent = label_text['extensionConfig'];
+    link.setAttribute('id', 'config-link');
+    link.addEventListener('click', function() {
+         chrome.runtime.openOptionsPage();
+    });
+    return link;
 }
 
 function createDetailRuleSection(rules) {
