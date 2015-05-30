@@ -171,7 +171,7 @@ function createSettingFields() {
     return dl;
 }
 
-function createRuleSection(rules) {
+function createDetailRuleSection(rules) {
     var result = document.createElement('dl');
     result.setAttribute('class', 'rules');
     for (key in rules) {
@@ -202,7 +202,7 @@ function createDetailSection(type, rules) {
 
     result.appendChild(checkbox);
     result.appendChild(label);
-    result.appendChild(createRuleSection(rules));
+    result.appendChild(createDetailRuleSection(rules));
     return result;
 }
 
