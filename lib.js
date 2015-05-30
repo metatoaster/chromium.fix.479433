@@ -69,6 +69,10 @@ var label_text = {
     'extensionConfig': 'Configure this extension',
 }
 
+function simplifyUrl(pattern) {
+    return pattern.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
+}
+
 function saveSetting(type, pattern, setting, incognito) {
     chrome.storage.local.get([type], function(items) {
         chrome.contentSettings[type].set({
@@ -189,7 +193,7 @@ function createDetailRuleSection(rules) {
     for (key in rules) {
         var domain = document.createElement('dt');
         var behavior = document.createElement('dd');
-        domain.textContent = key;
+        domain.textContent = simplifyUrl(key);
         behavior.textContent = option_labels[rules[key][0]];
         result.appendChild(domain);
         result.appendChild(behavior);

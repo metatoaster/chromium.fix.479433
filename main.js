@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         legend.textContent = label_text['contentSettings'];
         fieldset.appendChild(legend);
         css = document.querySelector('style').sheet;
-        var human_url = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
+        var human_url = simplifyUrl(url);
         fieldset.appendChild(createSettingFields());
         fieldset.appendChild(createSettingOptionLink());
         site.textContent = human_url;
