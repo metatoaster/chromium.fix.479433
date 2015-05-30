@@ -188,15 +188,17 @@ function createSettingOptionLink() {
 }
 
 function createDetailRuleSection(rules) {
-    var result = document.createElement('dl');
+    result = document.createElement('div');
     result.setAttribute('class', 'rules');
     for (key in rules) {
+        var item = document.createElement('dl');
         var domain = document.createElement('dt');
         var behavior = document.createElement('dd');
         domain.textContent = simplifyUrl(key);
         behavior.textContent = option_labels[rules[key][0]];
-        result.appendChild(domain);
-        result.appendChild(behavior);
+        item.appendChild(domain);
+        item.appendChild(behavior);
+        result.appendChild(item);
     }
     return result;
 }

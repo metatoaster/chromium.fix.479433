@@ -13,6 +13,7 @@ legend {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 28em;
+    white-space: nowrap;
 }
 .site {
     font-weight: bold;
@@ -65,6 +66,16 @@ img {
 #contents-settings-popup {
     width: 30em;
 }
+#config-link {
+    line-height: 19px;
+    text-align: center;
+    color: #15c;
+}
+#config-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 #contents-settings-reborn-page {
     width: 35em;
     max-height: 640px;
@@ -82,21 +93,16 @@ img {
 }
 #contents-settings-reborn-page input.header:checked + label {
 }
-#contents-settings-reborn-page input.header ~ dl {
+#contents-settings-reborn-page input.header ~ div.rules {
     transition: max-height 0.2s ease-in-out,box-shadow 0.2s linear;
     overflow: hidden;
     line-height: 1.6em;
     max-height: 0;
 }
-#contents-settings-reborn-page input.header:checked ~ dl {
+#contents-settings-reborn-page input.header ~ div.rules * {
+}
+#contents-settings-reborn-page input.header:checked ~ div.rules {
     max-height: 640px;
 }
-#config-link {
-    line-height: 19px;
-    text-align: center;
-    color: #15c;
-}
-#config-link:hover {
-    text-decoration: underline;
-    cursor: pointer;
+#contents-settings-reborn-page div.rules {
 }
