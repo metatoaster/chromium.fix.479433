@@ -11,19 +11,22 @@ document.addEventListener('DOMContentLoaded', function () {
         incognito = current.incognito;
         url = current.url;
         var site = document.getElementById('site');
+        var fieldset = document.getElementById('contentSettings');
         if (url.startsWith('chrome://')) {
             site.textContent = label_text['cannotToggleHere'];
+            fieldset.appendChild(createSettingOptionLink());
             return
         }
-        var fieldset = document.getElementById('contentSettings');
         var legend = document.createElement('legend');
         legend.textContent = label_text['contentSettings'];
         fieldset.appendChild(legend);
         css = document.querySelector('style').sheet;
-        var site = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
+        var human_url = url.replace(/.*\:\/\/([^\/]*)\/?.*/, '$1');
         fieldset.appendChild(createSettingFields());
         fieldset.appendChild(createSettingOptionLink());
-        document.getElementById('site').textContent = site;
+        site.textContent = human_url;
+        site.setAttribute('title', human_url);
+        site.setAttribute('class', 'site');
     });
 });
 

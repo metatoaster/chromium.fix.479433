@@ -8,6 +8,15 @@ body p {
 legend {
     font-weight: bold;
 }
+#site {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 28em;
+}
+.site {
+    font-weight: bold;
+}
 select {
     font-family: DejaVu Sans, Arial, sans-serif;
     width: 9em;
@@ -57,6 +66,7 @@ img {
     width: 30em;
 }
 #contents-settings-reborn-page {
+    width: 35em;
     max-height: 640px;
 }
 #contents-settings-reborn-page label.header {
@@ -75,6 +85,7 @@ img {
 #contents-settings-reborn-page input.header ~ dl {
     transition: max-height 0.2s ease-in-out,box-shadow 0.2s linear;
     overflow: hidden;
+    line-height: 1.6em;
     max-height: 0;
 }
 #contents-settings-reborn-page input.header:checked ~ dl {
