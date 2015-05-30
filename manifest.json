@@ -1,7 +1,7 @@
 {
     "name" : "Content Settings Reborn",
     "version" : "0.1",
-    "description" : "Restores the content settings permission control functionality as it existed in Chrome 23 till Chrome 41.",
+    "description" : "A rebirth of the content settings permission control panel as it existed in Chrome 23 to 41.",
     "permissions": [ "storage", "contentSettings", "activeTab" ],
     "browser_action": {
         "default_icon": "contentSettings.png",
