@@ -80,13 +80,17 @@ function saveSetting(type, pattern, setting, incognito) {
             'setting': setting,
             'scope': (incognito ? 'incognito_session_only' : 'regular')
         });
+        if (incognito) {
+            // not saving any incognito information.
+            return
+        }
         // setting this after because whenever users request to remove a
         // rule, if the following fails (such as due to out of storage)
         // the rules that failed to be saved simply won't be restored,
         // rather than the alternative where rules are saved for rules
         // that never have been set properly.
         type_items = items[type] || {};
-        type_items[pattern] = [setting, incognito];
+        type_items[pattern] = setting;
         items[type] = type_items;
         chrome.storage.local.set(items);
     });
